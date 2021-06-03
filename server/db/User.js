@@ -16,8 +16,6 @@ const User = db.define('user', {
   }
 })
 
-module.exports = User;
-
 User.prototype.correctPassword = function (candidatePassword) {
   const match = bcrypt.compare(candidatePassword, this.password);
   return match;
@@ -33,17 +31,17 @@ User.prototype.generateToken = async function() {
 }
 
 User.authenticate = async function ({username, password}) {
-  const user = await User.findOne({
+  const user = await this.findOne({
     where: {
-      username,
+      username
     },
   });
-  if (user && await user.correctPassword(password)) {
-    return user.generateToken();
-  } else {
-    const error = new Error('Bad credentials');
+  if (!user || !(await user.correctPassword(password))) {
+    const error = new Error('Incorrect username/password');
     error.status = 401;
     throw error;
+  } else {
+    return user.generateToken();
   };
 }
 
@@ -63,9 +61,12 @@ User.findByToken = async function (token) {
   }
 }
 
-const hashPassword = async(user) => {
-  if (user.changed('password')) {
-    user.password = await bcrypt.hash(user.password, SALT_ROUNDS)
-  }
+const hashPassword = (password) => {
+    return bcrypt.hash(password, SALT_ROUNDS);
 };
 
+User.beforeSave(async (user) => {
+  user.password = await hashPassword(user.password)
+});
+
+module.exports = User;

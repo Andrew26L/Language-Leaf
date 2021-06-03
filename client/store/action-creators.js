@@ -27,7 +27,7 @@ export const verifyMe = () => {
 export const authenticate = (username, password, method) => {
   return async (dispatch) => {
     try {
-      const res = await axios.post('/auth/${method}', {username, password});
+      const res = await axios.post(`api/auth/${method}`, {username, password});
       window.localStorage.setItem(TOKEN, res.data.token);
       dispatch(verifyMe());
     } catch (error) {
