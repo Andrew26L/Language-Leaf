@@ -43,7 +43,7 @@ const words = [
     german: 'essen'
   },
   {
-    english: 'running',
+    english: 'run',
     german: 'laufen'
   },
   {

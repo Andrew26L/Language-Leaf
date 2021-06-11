@@ -1,3 +1,9 @@
-div {
-  color: blue;
+.container-sm {
+  margin: 50px;
 }
+
+h1, h3 {
+  text-align: center;
+}
+
+

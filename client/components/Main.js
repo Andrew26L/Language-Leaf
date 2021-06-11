@@ -7,7 +7,7 @@ import {Quiz} from './Quiz';
 class Main extends React.Component {
   render() {
     return (
-      <div>
+      <div className="main-container">
         <Quiz />
       </div>
     )
