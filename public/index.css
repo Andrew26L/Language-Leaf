@@ -1,9 +1,22 @@
 .container-sm {
   margin: 50px;
+  max-width: 500px;
+  background-color: rgb(180, 202, 159);
+  padding: 35px;
+  border-radius: 150px 25px 150px 25px;
+  height: 400px;
 }
 
 h1, h3 {
   text-align: center;
 }
 
+.main-container {
+  display: flex;
+  justify-content: space-evenly;
 
+}
+
+body {
+  background-color: lightyellow;
+}

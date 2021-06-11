@@ -55,7 +55,7 @@ export class Quiz extends React.Component {
     return (
       <div className="quiz">
         <div className="container-sm">
-          <h1>German Quiz</h1>
+          <h1>Learn German</h1>
           <h3>Score: {this.state.score}</h3>
           <form onSubmit={this.handleSubmit} className="form-group">
             <div className="mb-3 row">
