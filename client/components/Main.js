@@ -1,14 +1,13 @@
 import React from 'react';
-import {Route} from 'react-router-dom';
-
-import {Signup, Login} from './AuthForm';
-import {Quiz} from './Quiz';
+import Routes from '../Routes';
+import Navbar from './Navbar'
 
 class Main extends React.Component {
   render() {
     return (
       <div className="main-container">
-        <Quiz />
+        <Navbar />
+        <Routes />
       </div>
     )
   }

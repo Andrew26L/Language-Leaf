@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {authenticate} from '../store/action-creators';
+import {authenticate} from '../store/auth';
 
 const AuthForm = (props) => {
   const {name, displayName, handleSubmit, error} = props;
