@@ -16,6 +16,7 @@ const setAuth = (auth) => ({
 export const verifyMe = () => {
   return async (dispatch) => {
     const token = window.localStorage.getItem(TOKEN);
+    console.log('verifyMe', token)
     if (token) {
       const res = await axios.get('/auth/me', {
         headers: {
@@ -30,7 +31,8 @@ export const verifyMe = () => {
 export const authenticate = (username, password, method) => {
   return async (dispatch) => {
     try {
-      const res = await axios.post(`api/auth/${method}`, {username, password});
+      const res = await axios.post(`/auth/${method}`, {username, password});
+      console.log('authenticate', res.data.token.token)
       window.localStorage.setItem(TOKEN, res.data.token);
       dispatch(verifyMe());
     } catch (error) {

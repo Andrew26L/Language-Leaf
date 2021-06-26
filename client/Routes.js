@@ -35,7 +35,7 @@ class Routes extends React.Component {
 
 const mapState = (state) => {
   return {
-    isLoggedIn: !!state.auth.id
+    isLoggedIn: !!state.auth._id
   }
 }
 

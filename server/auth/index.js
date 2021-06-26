@@ -1,5 +1,11 @@
 const router = require('express').Router();
-const {User} = require('../db');
+const { User } = require('../db');
+const mongoose = require('mongoose');
+// const { db } = require('../db')
+
+// mongoose.connect('mongodb://localhost:27017/language-translator', {useNewUrlParser: true, useUnifiedTopology: true});
+
+// const db = mongoose.connection;
 
 router.post('/login', async (req, res, next) => {
   try {
@@ -16,14 +22,28 @@ router.post('/login', async (req, res, next) => {
 
 router.post('/signup', async (req, res, next) => {
   try {
-    const user = await User.create(req.body);
+    console.log('reached post api route')
+    const user = new User(req.body);
+    console.log('signup api', user)
+    await user.save(function(error, user) {
+      if (error) {
+        console.log(error)
+        return console.error(error);
+      }
+    })
+    console.log(user)
     res.send({token: await user.generateToken()})
   } catch (error) {
-    if (error.name === 'SequelizeUniqueConstraintError') {
-      res.status(401).send('User already exists')
-    } else {
+      console.log(error)
       next(error);
-    }
+  }
+})
+
+router.get("/me", async (req, res, next) => {
+  try {
+    res.send(await User.findByToken(req.headers.authorization));
+  } catch (error) {
+      next(error);
   }
 })
 
