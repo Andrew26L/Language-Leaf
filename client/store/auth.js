@@ -14,6 +14,7 @@ const setAuth = (auth) => ({
 
 // Thunks
 export const verifyMe = () => {
+  console.log('verifyme thunk')
   return async (dispatch) => {
     const token = window.localStorage.getItem(TOKEN);
     console.log('verifyMe', token)
@@ -23,6 +24,7 @@ export const verifyMe = () => {
           authorization: token
         }
       })
+      console.log('res', res)
       return dispatch(setAuth(res.data))
     }
   }
@@ -31,8 +33,9 @@ export const verifyMe = () => {
 export const authenticate = (username, password, method) => {
   return async (dispatch) => {
     try {
+      console.log('attemp to aut')
       const res = await axios.post(`/auth/${method}`, {username, password});
-      console.log('authenticate', res.data.token.token)
+      console.log('authenticate', res.data.token)
       window.localStorage.setItem(TOKEN, res.data.token);
       dispatch(verifyMe());
     } catch (error) {

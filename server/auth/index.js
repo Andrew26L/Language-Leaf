@@ -9,11 +9,11 @@ const mongoose = require('mongoose');
 
 router.post('/login', async (req, res, next) => {
   try {
-    const user = await User.authenticate(req.body);
-    if (!user) {
+    const token = await User.authenticate(req.body);
+    if (!token) {
       res.sendStatus(404);
     } else {
-      res.send(user);
+      res.send({token});
     }
   } catch (error) {
     next(error)
@@ -32,7 +32,8 @@ router.post('/signup', async (req, res, next) => {
       }
     })
     console.log(user)
-    res.send({token: await user.generateToken()})
+    const token = await user.generateToken();
+    res.send({token})
   } catch (error) {
       console.log(error)
       next(error);
@@ -41,7 +42,9 @@ router.post('/signup', async (req, res, next) => {
 
 router.get("/me", async (req, res, next) => {
   try {
-    res.send(await User.findByToken(req.headers.authorization));
+    const user = await User.findByToken(req.headers.authorization)
+    console.log('me route', user)
+    res.send(user);
   } catch (error) {
       next(error);
   }
