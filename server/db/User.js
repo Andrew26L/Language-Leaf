@@ -3,7 +3,49 @@ const db = require('./db');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-// const SALT_ROUNDS = 5;
+const addressSchema = new mongoose.Schema({
+  street: String,
+  apt: String,
+  city: String,
+  state: String,
+  zip: Number
+});
+
+const userSchema = new mongoose.Schema({
+  username: {
+    type: String,
+    required: true,
+    index: { unique: true }
+  },
+  password: {
+    type: String,
+    required: true
+  },
+  isAdmin: {
+    type: Boolean,
+    default: false
+  },
+  email: String,
+  address: {
+    type: addressSchema
+  }
+});
+
+const User = mongoose.model('User', userSchema);
+
+const SALT_ROUNDS = 10;
+
+userSchema.pre(save, async function(next) {
+  if (this.isModified('password')) {
+    const hash = await bcrypt.hash(this.password, SALT_ROUNDS);
+    this.password = hash;
+    next();
+  } else {
+    next();
+  }
+})
+
+module.exports = User;
 
 // const User = db.define('user', {
 //   username: {
