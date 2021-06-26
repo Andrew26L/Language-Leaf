@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter, Route, Switch, Redirect } from 'react-router-dom';
-import { verifyMe } from './store';
+import { verifyMe } from './store/auth';
 import Home from './components/Home';
 import Quiz from './components/Quiz';
 import { Login, Signup } from './components/AuthForm';
@@ -12,6 +12,7 @@ class Routes extends React.Component {
     this.props.loadUser();
   }
   render() {
+    console.log(this.props.isLoggedIn)
     return (
       <div>
         {this.props.isLoggedIn ? (
@@ -40,7 +41,9 @@ const mapState = (state) => {
 
 const mapDispatch = (dispatch) => {
   return {
-    loadUser: () => dispatch(verifyMe())
+    loadUser() {
+      dispatch(verifyMe());
+    }
   }
 }
 

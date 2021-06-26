@@ -5,17 +5,33 @@ const morgan = require('morgan');
 const app = express();
 module.exports = app;
 
+app.use(morgan('dev'));
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(morgan('dev'));
+
+app.use('/auth', require('./auth'));
+app.use('/api', require('./api'));
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'public/index.html'))
+});
 
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
-app.get('/', (req, res, next) => {
-  res.sendFile(path.join(__dirname, '..', 'index.html'))
-});
+app.use((req, res, next) => {
+  if (path.extname(req.path).length) {
+    const err = new Error('Not Found');
+    err.status = 404;
+    next(err);
+  } else {
+    next();
+  }
+})
 
-app.use('/api', require('./api'));
+app.use('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'public/index.html'))
+});
 
 app.use((err, req, res, next) => {
   console.error(err);

@@ -5,6 +5,7 @@ import { logout } from '../store/auth';
 
 class Navbar extends React.Component {
   render() {
+    console.log(this.props.isLoggedIn)
     return (
       <div>
         <h1>Language Leaf</h1>

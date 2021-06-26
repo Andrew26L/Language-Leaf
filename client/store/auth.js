@@ -1,7 +1,10 @@
 import axios from 'axios';
+import history from '../history'
+
+const TOKEN = "token";
 
 // Action Types (Constants)
-export const SET_AUTH = 'SET_AUTH';
+const SET_AUTH = 'SET_AUTH';
 
 // Action Creators
 const setAuth = (auth) => ({
@@ -45,6 +48,7 @@ export const logout = () => {
   }
 }
 
+// Reducer
 export default (state = {}, action) => {
   switch (action.type) {
     case SET_AUTH:
