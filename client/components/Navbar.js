@@ -2,14 +2,21 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { logout } from '../store/auth';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import IconButton from '@material-ui/core/IconButton';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 
 class Navbar extends React.Component {
   render() {
     console.log(this.props.isLoggedIn)
     return (
-      <div>
+      <AppBar position="static">
+        <ToolBar>
+          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+          </IconButton>
         <h1>Language Leaf</h1>
-        <nav>
           {this.props.isLoggedIn ? (
             <div id="navDiv">
               <a href="#" onClick={this.props.handleClick}>Logout</a>
@@ -20,9 +27,8 @@ class Navbar extends React.Component {
               <Link to="/signup">Sign Up</Link>
             </div>
           )}
-        </nav>
-        <br />
-      </div>
+        </ToolBar>
+      </AppBar>
     )
   }
 }

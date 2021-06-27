@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fetchQuiz } from '../store/quiz';
 import QuizPrompt from './QuizPrompt';
 import QuizCheck from './QuizCheck';
+import QuizSummary from './QuizSummary';
 
 class Quiz extends React.Component {
   constructor(props) {
