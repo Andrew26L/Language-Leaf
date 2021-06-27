@@ -4,9 +4,15 @@ import {composeWithDevTools } from "redux-devtools-extension";
 import { createLogger } from 'redux-logger';
 import thunkMiddleware from 'redux-thunk';
 import auth from './auth';
+import quiz from './quiz';
+import score from './score';
+import quizStatus from './quizStatus';
 
 const reducer = combineReducers({
-  auth
+  auth,
+  quiz,
+  quizStatus,
+  score
 });
 
 const middleware = composeWithDevTools(

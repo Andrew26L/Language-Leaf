@@ -1,14 +1,9 @@
 const mongoose = require('mongoose');
 const reportsSchema = require('./Report');
 
-const wordSchema = new mongoose.Schema({
+const sentenceSchema = new mongoose.Schema({
   english: [String],
   german: [String],
-  imageUrl: String,
-  type: {
-    type: String,
-    enum: ['noun','verb','adjective','exclamation']
-  },
   correct: {
     type: Number,
     default: 0
@@ -20,6 +15,6 @@ const wordSchema = new mongoose.Schema({
   reports: [reportsSchema]
 })
 
-const Word = mongoose.model('Word', wordSchema);
+const Sentence = mongoose.model('Sentence', sentenceSchema);
 
-module.exports = Word;
+module.exports = Sentence;

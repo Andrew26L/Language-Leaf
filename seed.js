@@ -1,93 +1,164 @@
-const {Word} = require('./server/db');
+const { Word, Sentence } = require('./server/db');
 const mongoose = require('mongoose');
 
 const words = [
   {
     english: 'hello',
-    german: 'hallo'
+    german: 'hallo',
+    type: 'exclamation'
   },
   {
     english: 'room',
-    german: 'Zimmer'
+    german: 'Zimmer',
+    type: 'noun'
   },
   {
     english: 'morning',
-    german: 'Morgen'
+    german: 'Morgen',
+    type: 'noun'
   },
   {
     english: 'street',
-    german: 'Strasse'
+    german: 'Strasse',
+    type: 'noun'
   },
   {
     english: 'bread',
-    german: 'Brot'
+    german: 'Brot',
+    type: 'noun'
   },
   {
     english: 'house',
-    german: 'Haus'
+    german: 'Haus',
+    type: 'noun'
   },
   {
     english: 'dog',
-    german: 'Hund'
+    german: 'Hund',
+    type: 'noun'
   },
   {
     english: 'cat',
-    german: 'Katze'
+    german: 'Katze',
+    type: 'noun'
   },
   {
     english: 'live',
-    german: 'wohnen'
+    german: 'wohnen',
+    type: 'verb'
   },
   {
     english: 'eat',
-    german: 'essen'
+    german: 'essen',
+    type: 'verb'
   },
   {
     english: 'run',
-    german: 'laufen'
+    german: 'laufen',
+    type: 'verb'
   },
   {
     english: 'airplane',
-    german: 'Flugzeug'
+    german: 'Flugzeug',
+    type: 'noun'
   },
   {
     english: 'buy',
-    german: 'kaufen'
+    german: 'kaufen',
+    type: 'verb'
   },
   {
     english: 'give',
-    german: 'geben'
+    german: 'geben',
+    type: 'verb'
   },
   {
     english: 'cold',
-    german: 'kalt'
+    german: 'kalt',
+    type: 'adjective'
   },
   {
     english: 'sell',
-    german: 'verkaufen'
+    german: 'verkaufen',
+    type: 'verb'
   },
   {
     english: 'time',
-    german: 'Zeit'
+    german: 'Zeit',
+    type: 'noun'
   },
   {
     english: 'apple',
-    german: 'Apfel'
+    german: 'Apfel',
+    type: 'noun'
   },
   {
     english: 'have',
-    german: 'haben'
+    german: 'haben',
+    type: 'verb'
   },
   {
     english: 'need',
-    german: 'brauchen'
+    german: 'brauchen',
+    type: 'verb'
   }
+]
+
+const sentences = [
+  {
+    english: `I'm from Japan`,
+    german: `Ich komme aus Japan`
+  },
+  {
+    english: 'We are going to the movies',
+    german: 'Wir gehen ins Kino'
+  },
+  {
+    english: 'What time is it',
+    german: 'Wie viel uhr ist es'
+  },
+  {
+    english: 'Where is the airport',
+    german: 'Wo ist der Flughafen'
+  },
+  {
+    english: 'Good morning',
+    german: 'Guten Morgan'
+  },
+  {
+    english: 'I play tennis',
+    german: 'Ich spiele Tennis'
+  },
+  {
+    english: 'The apple is red',
+    german: 'Der Apfel ist rot'
+  },
+  {
+    english: 'The dog is small',
+    german: 'Der Hund ist klein'
+  },
+  {
+    english: 'My grandmother is from Ireland',
+    german: 'Meine Oma kommt aus Irland'
+  },
+  {
+    english: 'It is sunny',
+    german: 'Es ist sonnig'
+  },
 ]
 
 function seed() {
   for (let i = 0; i < words.length; i++) {
     const currentWord = new Word(words[i])
     currentWord.save(function(err, currentWord) {
+      if (err) {
+        return console.error(err);
+      }
+    })
+  }
+  for (let i = 0; i < sentences.length; i++) {
+    const currentSentence = new Sentence(sentences[i])
+    currentSentence.save(function(err, currentSentence) {
       if (err) {
         return console.error(err);
       }
