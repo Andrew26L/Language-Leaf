@@ -4,6 +4,7 @@ const SET_SUBMIT = "SET_SUBMIT";
 const SET_COMPLETE = "SET_COMPLETE";
 const SET_GUESS = "SET_GUESS";
 const RESET_QUIZ = "RESET_QUIZ";
+const TOGGLE_REPORT = "TOGGLE_REPORT"
 
 // Action Creators
 export const incrementQuestion = () => {
@@ -40,12 +41,20 @@ export const resetQuiz = () => {
   })
 }
 
+export const toggleReport = (bool) => {
+  return ({
+    type: TOGGLE_REPORT,
+    report: bool
+  })
+}
+
 const initialState = {
   question: 0,
   submittedGuess: false,
   finishedQuiz: false,
   guess: '',
-  lang: 'english'
+  lang: 'english',
+  report: false
 }
 
 export default (state = initialState, action) => {
@@ -60,6 +69,8 @@ export default (state = initialState, action) => {
       return {...state, finishedQuiz: action.finishedQuiz};
     case SET_GUESS:
       return {...state, guess: action.guess, lang: action.lang}
+    case TOGGLE_REPORT:
+      return {...state, report: action.report}
     default:
       return state;
   }

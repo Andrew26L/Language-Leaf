@@ -24,7 +24,7 @@ class Home extends React.Component {
         </div>
         <h3>Your Progress: 1,233 Points</h3>
         <Button
-          variant="contained"
+          variant="outlined"
           color="primary"
           size="large"
           onClick={this.handleClick}>

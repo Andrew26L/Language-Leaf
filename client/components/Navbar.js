@@ -11,7 +11,7 @@ import Button from '@material-ui/core/Button'
 
 const useStyles = makeStyles(theme => ({
   green: {
-    backgroundColor: "#222921"
+    backgroundColor: "#2b2e27"
   },
   root: {
     flexGrow: 1
@@ -31,8 +31,8 @@ const Navbar = ({isLoggedIn, handleClick}) => {
       <Toolbar>
         <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
         </IconButton>
-        <Typography variant="h5" className={classes.title}>
-        🍀 Language Leaf
+        <Typography variant="h6" className={classes.title}>
+        🌱 Language Leaf
         </Typography>
         {isLoggedIn ? (
           <div id="navDiv">

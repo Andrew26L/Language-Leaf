@@ -64,7 +64,7 @@ class QuizPrompt extends React.Component {
             onChange={this.handleChange}/>
           <br /><br />
           <Button
-            variant="contained"
+            variant="outlined"
             color="primary"
             onClick={this.handleSubmit}>
             Submit

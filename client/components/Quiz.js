@@ -4,6 +4,7 @@ import { fetchQuiz } from '../store/quiz';
 import QuizPrompt from './QuizPrompt';
 import QuizCheck from './QuizCheck';
 import QuizSummary from './QuizSummary';
+import Report from './Report';
 
 class Quiz extends React.Component {
   constructor(props) {
@@ -13,7 +14,12 @@ class Quiz extends React.Component {
     this.props.fetchQuiz();
   }
   render() {
-    let { finishedQuiz, submittedGuess } = this.props.quizStatus;
+    let { finishedQuiz, submittedGuess, report } = this.props.quizStatus;
+    if (report) {
+      return (
+        <Report />
+      )
+    }
     if (!finishedQuiz) {
       return (
         !submittedGuess

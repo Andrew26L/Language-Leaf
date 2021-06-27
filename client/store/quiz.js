@@ -26,6 +26,28 @@ export const fetchQuiz = () => {
   }
 }
 
+export const updateSolution = (quiz, guess, lang) => {
+  return async (dispatch) => {
+    if(quiz[lang][0].includes(" ")) {
+      const { data: sentence } = await axios.put('/api/sentences',
+        {
+          _id: quiz._id,
+          guess,
+          lang
+        }
+      )
+    } else {
+      const { data: word } = await axios.put('/api/words',
+        {
+          _id: quiz._id,
+          guess,
+          lang
+        }
+      )
+    }
+  }
+}
+
 // Reducer
 export default (state = [], action) => {
   switch (action.type) {

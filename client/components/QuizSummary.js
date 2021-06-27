@@ -18,7 +18,7 @@ class QuizSummary extends React.Component {
         <h1>🏆</h1>
         <h2>Score: 80</h2>
         <Button
-          variant="contained"
+          variant="outlined"
           color="primary"
           onClick={this.handleNext}>
           Next

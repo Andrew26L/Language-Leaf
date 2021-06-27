@@ -6,7 +6,8 @@
 .authForms {
   margin: 20px;
   width: 300px;
-  background-color: #aed89d;
+  /* background-color: #9ac08d; */
+  background-image: linear-gradient(to top right, #84a878, #a2c497);
   padding: 20px;
   border-radius: 5px 5px 5px 5px;
   box-shadow: 5px 5px 20px rgb(0, 0, 0);
@@ -19,7 +20,7 @@
   margin: 20px;
   width: 350px;
   height: 400px;
-  background-color: #aed89d;
+  background-image: linear-gradient(to top right, #84a878, #a2c497);
   padding: 50px;
   border-radius: 150px 5px 150px 5px;
   box-shadow: 5px 5px 20px rgb(0, 0, 0);
@@ -32,7 +33,7 @@
   margin: 20px;
   width: 350px;
   height: 400px;
-  background-color: #aed89d;
+  background-image: linear-gradient(to top right, #84a878, #a2c497);
   padding: 50px;
   border-radius: 150px 5px 150px 5px;
   box-shadow: 5px 5px 20px rgb(0, 0, 0);

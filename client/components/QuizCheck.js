@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
-import { incrementQuestion, toggleSubmitStatus, quizCompleted } from '../store/quizStatus';
+import { incrementQuestion, toggleSubmitStatus, quizCompleted, toggleReport } from '../store/quizStatus';
 
 class QuizCheck extends React.Component {
   constructor(props) {
@@ -26,7 +26,7 @@ class QuizCheck extends React.Component {
     }
   }
   handleReport(event) {
-    console.log('reported')
+    this.props.toggleReport(true);
   }
   handleNext(event) {
     if (this.props.quizStatus.question === this.props.quiz.length - 1) {
@@ -43,8 +43,9 @@ class QuizCheck extends React.Component {
         {this.state.correct ?
           (
             <div>
-              <h1>CORRECT!</h1>
+              <div></div>
               <h1>⭐️</h1>
+              <h1>CORRECT!</h1>
             </div>
           ) : (
             <div>
@@ -56,13 +57,13 @@ class QuizCheck extends React.Component {
         }
         <div className="buttonContainer">
           <Button
-            variant="contained"
+            variant="outlined"
             color="secondary"
             onClick={this.handleReport}>
             Report
           </Button>
           <Button
-            variant="contained"
+            variant="outlined"
             color="primary"
             onClick={this.handleNext}>
             Next
@@ -84,6 +85,7 @@ const mapDispatch = (dispatch) => {
     incrementQuestion: () => {dispatch(incrementQuestion())},
     toggleSubmitStatus: (bool) => {dispatch(toggleSubmitStatus(bool))},
     quizCompleted: (bool) => {dispatch(quizCompleted(bool))},
+    toggleReport: (bool) => {dispatch(toggleReport(bool))},
   }
 }
 

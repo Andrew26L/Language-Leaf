@@ -12,4 +12,17 @@ router.get('/', async (req, res, next) => {
   }
 })
 
+router.put('/', async (req, res, next) => {
+  try {
+    console.log(req.body)
+    const sentence = await Sentence.findById(req.body._id);
+    console.log(sentence)
+    sentence[req.body.lang].push(req.body.guess);
+    await sentence.save();
+    res.send(sentence);
+  } catch (error) {
+    next(error);
+  }
+})
+
 module.exports = router;

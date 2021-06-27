@@ -1,11 +1,6 @@
 const router = require('express').Router();
 const { User } = require('../db');
 const mongoose = require('mongoose');
-// const { db } = require('../db')
-
-// mongoose.connect('mongodb://localhost:27017/language-translator', {useNewUrlParser: true, useUnifiedTopology: true});
-
-// const db = mongoose.connection;
 
 router.post('/login', async (req, res, next) => {
   try {
