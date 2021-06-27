@@ -114,12 +114,12 @@ const sentences = [
     german: 'Wir gehen ins Kino'
   },
   {
-    english: 'What time is it',
-    german: 'Wie viel uhr ist es'
+    english: 'What time is it?',
+    german: 'Wie viel Uhr ist es?'
   },
   {
-    english: 'Where is the airport',
-    german: 'Wo ist der Flughafen'
+    english: 'Where is the airport?',
+    german: 'Wo ist der Flughafen?'
   },
   {
     english: 'Good morning',

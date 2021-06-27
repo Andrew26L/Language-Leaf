@@ -13,16 +13,17 @@ class QuizSummary extends React.Component {
   }
   render() {
     return (
-      <div className="container-sm">
-        <h2>Quiz Completed!</h2>
+      <div className="leaf">
+        <h1>Quiz Completed!</h1>
         <h1>🏆</h1>
-        <h5>Score: 80</h5>
+        <h2>Score: 80</h2>
         <Button
           variant="contained"
           color="primary"
           onClick={this.handleNext}>
           Next
         </Button>
+        <div></div>
     </div>
   )}
 }

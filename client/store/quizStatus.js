@@ -3,6 +3,7 @@ const SET_QUESTION = "SET_QUESTION";
 const SET_SUBMIT = "SET_SUBMIT";
 const SET_COMPLETE = "SET_COMPLETE";
 const SET_GUESS = "SET_GUESS";
+const RESET_QUIZ = "RESET_QUIZ";
 
 // Action Creators
 export const incrementQuestion = () => {
@@ -33,6 +34,12 @@ export const setGuess = (guess, lang) => {
   })
 }
 
+export const resetQuiz = () => {
+  return ({
+    type: RESET_QUIZ
+  })
+}
+
 const initialState = {
   question: 0,
   submittedGuess: false,
@@ -43,6 +50,8 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case RESET_QUIZ:
+      return {...state, question: 0}
     case SET_QUESTION:
       return {...state, question: state.question + 1};
     case SET_SUBMIT:

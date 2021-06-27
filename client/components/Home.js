@@ -1,27 +1,47 @@
 import React from 'react';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import history from '../history';
+import { resetQuiz, quizCompleted } from '../store/quizStatus'
 
-export default class Home extends React.Component {
+class Home extends React.Component {
   constructor() {
     super()
-    this.handleClick.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
   handleClick() {
+    this.props.resetQuiz();
+    this.props.quizCompleted(false);
     history.push('/quiz');
   }
   render() {
     return (
-      <div>
-        <h5>Welcome to Language Leaf!</h5>
+      <div className="homeCard">
+        <div>
+          <h1>Welcome</h1>
+          <h3>to</h3>
+          <h1>Language Leaf</h1>
+        </div>
+        <h3>Your Progress: 1,233 Points</h3>
         <Button
           variant="contained"
           color="primary"
+          size="large"
           onClick={this.handleClick}>
           Begin Next Quiz
         </Button>
+        <div></div>
+        <div></div>
       </div>
     )
   }
 }
+
+const mapDispatch = (dispatch) => {
+  return {
+    resetQuiz: () => {dispatch(resetQuiz())},
+    quizCompleted: (bool) => {dispatch(quizCompleted(bool))},
+  }
+}
+
+export default connect(null, mapDispatch)(Home);

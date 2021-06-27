@@ -7,7 +7,7 @@ class QuizCheck extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      correct: false
+      correct: true
     }
     this.handleReport = this.handleReport.bind(this);
     this.handleNext = this.handleNext.bind(this);
@@ -31,6 +31,7 @@ class QuizCheck extends React.Component {
   handleNext(event) {
     if (this.props.quizStatus.question === this.props.quiz.length - 1) {
       this.props.quizCompleted(true);
+      this.props.toggleSubmitStatus(false);
     } else {
       this.props.incrementQuestion();
       this.props.toggleSubmitStatus(false);
@@ -38,26 +39,35 @@ class QuizCheck extends React.Component {
   }
   render() {
     return (
-      <div className="container-sm">
+      <div className="leaf">
         {this.state.correct ?
           (
-            <div>CORRECT!!</div>
+            <div>
+              <h1>CORRECT!</h1>
+              <h1>⭐️</h1>
+            </div>
           ) : (
-            <div>Incorrect.</div>
+            <div>
+              <h1>Incorrect.</h1>
+              <h5>{`Your Answer: ${this.props.quizStatus.guess}`}</h5>
+              <h5>{`Correct Answer: ${this.props.quiz[this.props.quizStatus.question][this.props.quizStatus.lang][0]}`}</h5>
+            </div>
           )
         }
-        <Button
-          variant="contained"
-          color="secondary"
-          onClick={this.handleReport}>
-          Report
-        </Button>
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={this.handleNext}>
-          Next
-        </Button>
+        <div className="buttonContainer">
+          <Button
+            variant="contained"
+            color="secondary"
+            onClick={this.handleReport}>
+            Report
+          </Button>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={this.handleNext}>
+            Next
+          </Button>
+        </div>
     </div>
   )}
 }

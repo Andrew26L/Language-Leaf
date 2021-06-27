@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import { toggleSubmitStatus, setGuess } from '../store/quizStatus'
+import { TextField, InputLabel } from '@material-ui/core/'
 
 class QuizPrompt extends React.Component {
   constructor(props) {
@@ -49,26 +50,19 @@ class QuizPrompt extends React.Component {
     let { promptLang, translateLang } = this.state;
     const prompt = this.props.quiz[question] ? this.props.quiz[question][promptLang][0] : '';
     return (
-      <div className="container-sm">
+      <div className="leaf">
         <form onSubmit={this.handleSubmit} className="form-group">
-          <div className="mb-3 row">
-            <label htmlFor="prompt" className="form-label">{`In ${promptLang}:`}</label>
-            <div className="col-sm-10">
-              <input type="text" readOnly className="form-control" id="prompt" value={prompt}/>
-            </div>
-          </div>
-          <div className="mb-3 row">
-            <label htmlFor="userTranslation" className="form-label">{`Translate to ${translateLang}:`}</label>
-            <div className="col-sm-10">
-              <input
-                type="text"
-                className="form-control"
-                id="userTranslation"
-                placeholder={translateLang}
-                value={this.state.guess}
-                onChange={this.handleChange}/>
-            </div>
-          </div>
+          <h5>{`In ${promptLang}:`}</h5>
+          <h2>{prompt}</h2>
+          <br /><br />
+          <TextField
+            id="outlined-basic"
+            fullWidth={true}
+            label={translateLang}
+            variant="outlined"
+            value={this.state.guess}
+            onChange={this.handleChange}/>
+          <br /><br />
           <Button
             variant="contained"
             color="primary"

@@ -2,26 +2,36 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {authenticate} from '../store/auth';
 import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField'
 
 const AuthForm = (props) => {
   const {name, displayName, handleSubmit, error} = props;
   return (
-    <div>
+    <div className="authForms">
+      <h1>{displayName}</h1>
       <form onSubmit={handleSubmit} name={name}>
         <div>
-          <label htmlFor="username">
-            <small>Username</small>
-          </label>
-          <input name="username" type="text" />
+          <TextField
+            name="username"
+            type="text"
+            id="outlined-basic"
+            label="Username"
+            variant="outlined"
+            fullWidth={true} />
         </div>
+        <br />
         <div>
-          <label htmlFor="password">
-            <small>Password</small>
-          </label>
-          <input name="password" type="password" />
+          <TextField
+            name="password"
+            type="password"
+            id="outlined-basic"
+            label="Password"
+            variant="outlined"
+            fullWidth={true} />
         </div>
+        <br />
         <div>
-          <Button variant="contained" color="primary">{displayName}</Button>
+          <Button variant="contained" color="primary" type="submit">{displayName}</Button>
         </div>
         {error && error.response && <div>{error.response.data}</div>}
       </form>

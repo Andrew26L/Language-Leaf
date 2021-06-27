@@ -4,9 +4,11 @@ import Navbar from './Navbar'
 
 const Main = () => {
   return (
-    <div className="main-container">
+    <div>
       <Navbar />
-      <Routes />
+      <div className="outerContainer">
+        <Routes />
+      </div>
     </div>
   )
 }
