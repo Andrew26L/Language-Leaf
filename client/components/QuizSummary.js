@@ -16,7 +16,7 @@ class QuizSummary extends React.Component {
       <div className="leaf">
         <h1>Quiz Completed!</h1>
         <h1>🏆</h1>
-        <h2>Score: 80</h2>
+        <h2>{`Score: ${this.props.score}`}</h2>
         <Button
           variant="outlined"
           color="primary"
@@ -30,7 +30,8 @@ class QuizSummary extends React.Component {
 
 const mapState = (state) => {
   return {
-    quizStatus: state.quizStatus
+    quizStatus: state.quizStatus,
+    score: state.score
   }
 }
 

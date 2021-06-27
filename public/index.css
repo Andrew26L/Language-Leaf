@@ -57,3 +57,8 @@ body {
   justify-content: space-between;
   margin: 50px;
 }
+
+a {
+  color: white;
+  text-decoration: none;
+}

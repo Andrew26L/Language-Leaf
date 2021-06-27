@@ -3,7 +3,7 @@
 const INCREMENT_SCORE = "INCREMENT_SCORE"
 
 // Action Creators
-const setScore = () => {
+export const incrementScore = () => {
   return ({
     type: INCREMENT_SCORE
   })

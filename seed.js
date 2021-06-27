@@ -123,7 +123,7 @@ const sentences = [
   },
   {
     english: 'Good morning',
-    german: 'Guten Morgan'
+    german: 'Guten Morgen'
   },
   {
     english: 'I play tennis',

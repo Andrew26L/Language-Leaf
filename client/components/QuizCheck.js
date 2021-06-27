@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import { incrementQuestion, toggleSubmitStatus, quizCompleted, toggleReport } from '../store/quizStatus';
+import { incrementScore } from '../store/score';
 
 class QuizCheck extends React.Component {
   constructor(props) {
@@ -16,6 +17,7 @@ class QuizCheck extends React.Component {
     const { lang, guess, question } = this.props.quizStatus || '';
     const solutions = this.props.quiz[question][lang] || [];
     if (solutions.includes(guess)) {
+      this.props.incrementScore();
       this.setState({
         correct: true
       })
@@ -82,6 +84,7 @@ const mapState = (state) => {
 
 const mapDispatch = (dispatch) => {
   return {
+    incrementScore: () => {dispatch(incrementScore())},
     incrementQuestion: () => {dispatch(incrementQuestion())},
     toggleSubmitStatus: (bool) => {dispatch(toggleSubmitStatus(bool))},
     quizCompleted: (bool) => {dispatch(quizCompleted(bool))},

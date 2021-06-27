@@ -22,7 +22,7 @@ class Home extends React.Component {
           <h3>to</h3>
           <h1>Language Leaf</h1>
         </div>
-        <h3>Your Progress: 1,233 Points</h3>
+        <h3>Your Progress: 1,230 Points</h3>
         <Button
           variant="outlined"
           color="primary"
