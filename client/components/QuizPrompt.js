@@ -8,7 +8,7 @@ class QuizPrompt extends React.Component {
     super(props);
     this.state = {
       guess: '',
-      promptLang: 'enlish',
+      promptLang: 'english',
       translateLang: 'german'
     }
     this.randomizeLanguage = this.randomizeLanguage.bind(this);
@@ -45,8 +45,8 @@ class QuizPrompt extends React.Component {
     })
   }
   render() {
-    const { question } = this.props.quizStatus || 0;
-    const { promptLang, translateLang } = this.state
+    let { question } = this.props.quizStatus || 0;
+    let { promptLang, translateLang } = this.state;
     const prompt = this.props.quiz[question] ? this.props.quiz[question][promptLang][0] : '';
     return (
       <div className="container-sm">

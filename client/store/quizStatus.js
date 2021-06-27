@@ -5,10 +5,9 @@ const SET_COMPLETE = "SET_COMPLETE";
 const SET_GUESS = "SET_GUESS";
 
 // Action Creators
-export const setQuestionNum = (num) => {
+export const incrementQuestion = () => {
   return ({
     type: SET_QUESTION,
-    question: num
   })
 }
 
@@ -45,7 +44,7 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case SET_QUESTION:
-      return {...state, question: action.question};
+      return {...state, question: state.question + 1};
     case SET_SUBMIT:
       return {...state, submittedGuess: action.submittedGuess};
     case SET_COMPLETE:
