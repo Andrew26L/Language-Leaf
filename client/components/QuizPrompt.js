@@ -33,9 +33,10 @@ class QuizPrompt extends React.Component {
     }
   }
   handleSubmit(event) {
-    event.preventDefault();
-    setGuess(this.state.guess, this.state.translateLang);
-    toggleSubmitStatus(true);
+    console.log('clicked')
+    this.props.setGuess(this.state.guess, this.state.translateLang);
+    this.props.toggleSubmitStatus(true);
+
 
   }
   async handleChange(event) {
@@ -45,11 +46,10 @@ class QuizPrompt extends React.Component {
   }
   render() {
     const { question } = this.props.quizStatus || 0;
-    const { promptLang, translationLang } = this.state
+    const { promptLang, translateLang } = this.state
     const prompt = this.props.quiz[question] ? this.props.quiz[question][promptLang][0] : '';
     return (
       <div className="container-sm">
-      <h3>Score: {score}</h3>
         <form onSubmit={this.handleSubmit} className="form-group">
           <div className="mb-3 row">
             <label htmlFor="prompt" className="form-label">{`In ${promptLang}:`}</label>
@@ -58,19 +58,23 @@ class QuizPrompt extends React.Component {
             </div>
           </div>
           <div className="mb-3 row">
-            <label htmlFor="userTranslation" className="form-label">{`Translate to ${translationLang}:`}</label>
+            <label htmlFor="userTranslation" className="form-label">{`Translate to ${translateLang}:`}</label>
             <div className="col-sm-10">
               <input
                 type="text"
                 className="form-control"
                 id="userTranslation"
-                placeholder={translationLang}
+                placeholder={translateLang}
                 value={this.state.guess}
                 onChange={this.handleChange}/>
             </div>
           </div>
-          <Button variant="contained" color="primary">Submit</Button>
-          <br /><br />
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={this.handleSubmit}>
+            Submit
+          </Button>
         </form>
     </div>
   )}
@@ -79,8 +83,15 @@ class QuizPrompt extends React.Component {
 const mapState = (state) => {
   return {
     quiz: state.quiz,
-    quizStatus = state.quizStatus
+    quizStatus: state.quizStatus
   }
 }
 
-export default connect(mapState)(QuizPrompt);
+const mapDispatch = (dispatch) => {
+  return {
+    toggleSubmitStatus: (bool) => {dispatch(toggleSubmitStatus(bool))},
+    setGuess: (guess, lang) => {dispatch(setGuess(guess, lang))}
+  }
+}
+
+export default connect(mapState, mapDispatch)(QuizPrompt);

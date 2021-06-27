@@ -7,7 +7,6 @@ import QuizCheck from './QuizCheck';
 class Quiz extends React.Component {
   constructor(props) {
     super(props);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
   componentDidMount() {
     this.props.fetchQuiz();
