@@ -7,7 +7,7 @@
   <h3 align="center"> 🌱 </h3>
   <h3 align="center">Language Leaf</h3>
   <p align="center">Language learning platform that adapts to user feedback</p>
-  <p align="center">MongoDB | Express | React | Node.js | Material-UI | JWT</p>
+  <p align="center">MongoDB | Express | React/Redux | Node.js | Material-UI | JWT</p>
   <hr />
 
 
