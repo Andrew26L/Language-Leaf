@@ -1,16 +1,10 @@
 const router = require('express').Router();
-const { Sentence } = require('../db');
-const { Word } = require('../db');
-const { submitReport } = require('../adminBot');
+const submitReport = require('../adminBot');
 
-router.post('/#type', async (req, res, next) => {
+router.post('/:type', async (req, res, next) => {
   try {
-    await submitReport('req.params.type', req.body.language, req.body.);
-    const word = await Word.findById(req.body._id);
-
-    word[req.body.lang].push(req.body.guess);
-    await word.save();
-    res.send(word);
+    const instance = await submitReport(req.params.type, req.body._id, req.body.language, req.body.guess);
+    res.send(instance);
   } catch (error) {
     next(error);
   }
