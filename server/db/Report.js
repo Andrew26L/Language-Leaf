@@ -5,8 +5,7 @@ const reportsSchema = new mongoose.Schema({
     type: String,
     enum: ['english', 'german']
   },
-  sentence: String,
-  reports: Number
+  guess: String,
 })
 
 module.exports = reportsSchema;
