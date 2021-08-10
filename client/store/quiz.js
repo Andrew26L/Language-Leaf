@@ -26,32 +26,32 @@ export const fetchQuiz = () => {
   }
 }
 
-export const updateSolution = (quiz, guess, lang) => {
-  return async (dispatch) => {
-    if(quiz[lang][0].includes(" ")) {
-      const { data: sentence } = await axios.put('/api/sentences',
-        {
-          _id: quiz._id,
-          guess,
-          lang
-        }
-      )
-    } else {
-      const { data: word } = await axios.put('/api/words',
-        {
-          _id: quiz._id,
-          guess,
-          lang
-        }
-      )
-    }
-  }
-}
+// export const updateSolution = (quiz, guess, lang) => {
+//   return async (dispatch) => {
+//     if(quiz[lang][0].includes(" ")) {
+//       const { data: sentence } = await axios.put('/api/sentences',
+//         {
+//           _id: quiz._id,
+//           guess,
+//           lang
+//         }
+//       )
+//     } else {
+//       const { data: word } = await axios.put('/api/words',
+//         {
+//           _id: quiz._id,
+//           guess,
+//           lang
+//         }
+//       )
+//     }
+//   }
+// }
 
 export const addReport = (quiz, guess, language) => {
   return async (dispatch) => {
-    if(quiz[lang][0].includes(" ")) {
-      const { data: sentence } = await axios.put('/api/sentences',
+    if(quiz[language][0].includes(" ")) {
+      const { data: sentence } = await axios.post('/api/report/sentence',
         {
           _id: quiz._id,
           guess,
@@ -59,7 +59,7 @@ export const addReport = (quiz, guess, language) => {
         }
       )
     } else {
-      const { data: word } = await axios.put('/api/words',
+      const { data: word } = await axios.post('/api/report/word',
         {
           _id: quiz._id,
           guess,

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import { incrementQuestion, toggleSubmitStatus, quizCompleted, toggleReport } from '../store/quizStatus';
-import { updateSolution } from '../store/quiz';
+import { addReport } from '../store/quiz';
 
 class QuizCheck extends React.Component {
   constructor(props) {
@@ -20,7 +20,7 @@ class QuizCheck extends React.Component {
   handleSubmit(event) {
     const { question, guess, lang } = this.props.quizStatus;
     const currentQuiz = this.props.quiz[question];
-    this.props.updateSolution(currentQuiz, guess, lang);
+    this.props.addReport(currentQuiz, guess, lang);
     this.handleNext();
   }
   handleNext(event) {
@@ -79,7 +79,7 @@ const mapDispatch = (dispatch) => {
     toggleSubmitStatus: (bool) => {dispatch(toggleSubmitStatus(bool))},
     quizCompleted: (bool) => {dispatch(quizCompleted(bool))},
     toggleReport: (bool) => {dispatch(toggleReport(bool))},
-    updateSolution: (quiz, guess, lang) => {dispatch(updateSolution(quiz, guess, lang))},
+    addReport: (quiz, guess, lang) => {dispatch(addReport(quiz, guess, lang))},
   }
 }
 
