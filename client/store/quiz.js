@@ -48,6 +48,28 @@ export const updateSolution = (quiz, guess, lang) => {
   }
 }
 
+export const addReport = (quiz, guess, language) => {
+  return async (dispatch) => {
+    if(quiz[lang][0].includes(" ")) {
+      const { data: sentence } = await axios.put('/api/sentences',
+        {
+          _id: quiz._id,
+          guess,
+          language
+        }
+      )
+    } else {
+      const { data: word } = await axios.put('/api/words',
+        {
+          _id: quiz._id,
+          guess,
+          language
+        }
+      )
+    }
+  }
+}
+
 // Reducer
 export default (state = [], action) => {
   switch (action.type) {
