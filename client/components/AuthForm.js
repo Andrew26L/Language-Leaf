@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {authenticate} from '../store/auth';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField'
+import { Link } from 'react-router-dom';
 
 const AuthForm = (props) => {
   const {name, displayName, handleSubmit, error} = props;
@@ -35,6 +36,7 @@ const AuthForm = (props) => {
         </div>
         {error && error.response && <div>{error.response.data}</div>}
       </form>
+      {displayName === 'Login' ? <h5>New to Language Leaf? <Link to ="signup">Sign up</Link></h5> : <h5>Already registered? <Link to="/login">Log in</Link></h5>}
     </div>
   )
 };

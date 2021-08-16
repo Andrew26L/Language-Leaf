@@ -58,7 +58,7 @@ body {
   margin: 50px;
 }
 
-a {
+.navButton {
   color: white;
   text-decoration: none;
 }
