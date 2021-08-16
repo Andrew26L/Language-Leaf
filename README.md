@@ -12,15 +12,11 @@
 
 <hr />
 
-<p align="center">Language Leaf is a language-learning app that allows amateur linguists to learn a new language through interactive quizzes.</p>
-
-<hr />
-
 <!-- PROJECT DEMO GIF, AND IMAGES SHOULD BE PUT HERE -->
 <p align="center">
   <img src="https://user-images.githubusercontent.com/60858237/129615848-8b18b8f4-41be-4dfe-8051-732db26583ca.png" width=400></img>
 </p>
-<p  align="center">A user can complete engaging quizzes on word and sentence translations to learn a new language.</p>
+<p  align="center">Language Leaf is a language-learning app that allows amateur linguists to learn a new language through interactive quizzes.</p>
 <p align="center">
   <img src="https://user-images.githubusercontent.com/60858237/127179073-0a1b5b8d-4d89-4c54-ba36-440da4568a49.png" width=400></img>
 </p>
@@ -30,6 +26,7 @@
 </p>
 <p align="center">If a user finds an issue with a specific translation, the user can submit a report to help improve the app.</p>
 
+<hr />
 
 ## Deployed Site:
 
