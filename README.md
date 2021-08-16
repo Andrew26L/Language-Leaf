@@ -22,7 +22,7 @@ Language Leaf is a language-learning app that allows amateur linguists to learn 
 
 ## Deployed Site:
 
-Coming soon!
+<a href="https://language-leaf.herokuapp.com/">language-leaf.herokuapp.com</a>
 
 ## Prerequisites:
 
