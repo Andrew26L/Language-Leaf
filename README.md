@@ -40,14 +40,14 @@ Before you begin, ensure you have met the following requirements:
 
 ## Installing Language Leaf:
 
-To install Language Leaf, follow these steps: 
+The simplest way to use Language Leaf is by accessing the deployed site <a href="https://language-leaf.herokuapp.com/">lhere</a> To install Language Leaf locally, follow these steps: 
 
 Linux and macOS:
 ```
 npm install
 ```
 ```
-npm run start:dev
+npm start
 ```
 
 
