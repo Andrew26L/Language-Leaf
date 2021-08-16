@@ -58,7 +58,7 @@ class QuizCheck extends React.Component {
             </div>
           ) : (
             <div className="leaf">
-              <h1>Incorrect.</h1>
+              <h1>Incorrect</h1>
               <div>
                 <h5>{`Your Answer: ${this.props.quizStatus.guess}`}</h5>
                 <h5>{`Correct Answer: ${this.props.quiz[this.props.quizStatus.question][this.props.quizStatus.lang][0]}`}</h5>
