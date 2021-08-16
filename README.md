@@ -3,23 +3,33 @@
 ![GitHub contributors](https://img.shields.io/github/contributors/Andrew26L/Language-Leaf)
 ![GitHub stars](https://img.shields.io/github/stars/Andrew26L/Language-Leaf)
 
-  <br></br>
-  <h3 align="center"> 🌱 </h3>
-  <h3 align="center">Language Leaf</h3>
-  <p align="center" ><a href="https://language-leaf.herokuapp.com/">language-leaf.herokuapp.com</a></p>
-  <p align="center">Language learning platform that adapts to user feedback</p>
-  <p align="center">MongoDB | Express | React/Redux | Node.js | Material-UI | JWT</p>
-  <hr />
+<br></br>
+<h3 align="center"> 🌱 </h3>
+<h3 align="center">Language Leaf</h3>
+<p align="center" ><a href="https://language-leaf.herokuapp.com/">language-leaf.herokuapp.com</a></p>
+<p align="center">Language learning platform that adapts to user feedback</p>
+<p align="center">MongoDB | Express | React/Redux | Node.js | Material-UI | JWT</p>
 
+<hr />
 
+<p align="center">Language Leaf is a language-learning app that allows amateur linguists to learn a new language through interactive quizzes.</p>
 
-Language Leaf is a language-learning app that allows amateur linguists to learn a new language through through interactive quizzes. User can file reports to submit new translations to an administrator. This allows the application to constantly adapt and improve over time. 
-
+<hr />
 
 <!-- PROJECT DEMO GIF, AND IMAGES SHOULD BE PUT HERE -->
 <p align="center">
-<img src="https://user-images.githubusercontent.com/60858237/127179073-0a1b5b8d-4d89-4c54-ba36-440da4568a49.png" width=400></img>
+  <img src="https://user-images.githubusercontent.com/60858237/129615848-8b18b8f4-41be-4dfe-8051-732db26583ca.png" width=400></img>
 </p>
+<p  align="center">A user can complete engaging quizzes on word and sentence translations to learn a new language.</p>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/60858237/127179073-0a1b5b8d-4d89-4c54-ba36-440da4568a49.png" width=400></img>
+</p>
+<p align="center">A word or sentence is displayed, and the user is prompted to enter a translation.</p>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/60858237/129616051-0722ed96-0340-4c63-84ca-ee56ae4fd059.png" width=400></img>
+</p>
+<p align="center">If a user finds an issue with a specific translation, the user can submit a report to help improve the app.</p>
+
 
 ## Deployed Site:
 
