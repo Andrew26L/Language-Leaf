@@ -47,7 +47,7 @@ Linux and macOS:
 npm install
 ```
 ```
-npm start
+npm run start:dev
 ```
 
 
