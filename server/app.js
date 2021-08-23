@@ -5,7 +5,7 @@ const morgan = require('morgan');
 const app = express();
 module.exports = app;
 
-app.use(morgan('dev'));
+// app.use(morgan('dev'));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
