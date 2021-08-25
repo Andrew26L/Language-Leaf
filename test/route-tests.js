@@ -1,12 +1,12 @@
-const seed = require("../seed");
 const app = require("../server/app");
 const request = require("supertest");
 const { expect } = require("chai");
+const seed = require("../seed");
 
 describe("API Routes", () => {
-  // beforeEach(async () => {
-  //   await seed();
-  // })
+  beforeEach(async () => {
+    await seed();
+  })
   describe("Word routes - /api/words", () => {
     it("GET responds successfully with status code 200", async() => {
       const res = await request(app).get("/api/words").expect(200)
