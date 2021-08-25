@@ -166,12 +166,17 @@ function seed() {
   }
 }
 
-mongoose.connect('mongodb://localhost:27017/language-translator', {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(process.env.NODE_ENV === 'test' ? 'mongodb://localhost:27017/language-translator-test' : 'mongodb://localhost:27017/language-translator', {useNewUrlParser: true, useUnifiedTopology: true});
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-  seed();
+db.once('open', async function() {
+  await Sentence.deleteMany({});
+  await Word.deleteMany({});
+  await seed();
+  if (process.env.NODE_ENV !== 'test') {
+    console.log('Database Seeded Successfully')
+  }
 })
 
-
+module.exports = seed;
