@@ -17,7 +17,7 @@ router.post('/login', async (req, res, next) => {
 
 router.post('/signup', async (req, res, next) => {
   try {
-    const user = new User(req.body);
+    const user = await new User(req.body);
     await user.save(function(error, user) {
       if (error) {
         console.log(error)
