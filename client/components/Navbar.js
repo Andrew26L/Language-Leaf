@@ -40,10 +40,10 @@ const Navbar = ({isLoggedIn, handleClick}) => {
           </div>
         ) : (
           <div id="navDiv">
-            <Link to="/login" class="navButton">
+            <Link to="/login" className="navButton">
             <Button color="inherit">Log In</Button>
             </Link>
-            <Link to="/signup" class="navButton">
+            <Link to="/signup" className="navButton">
               <Button color="inherit">Sign Up</Button>
             </Link>
           </div>
