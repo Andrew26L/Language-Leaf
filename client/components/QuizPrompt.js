@@ -34,7 +34,6 @@ class QuizPrompt extends React.Component {
     }
   }
   handleSubmit(event) {
-    console.log('clicked')
     this.props.setGuess(this.state.guess, this.state.translateLang);
     this.props.toggleSubmitStatus(true);
 
