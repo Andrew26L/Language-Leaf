@@ -15,7 +15,6 @@ const AuthForm = (props) => {
           <TextField
             name="username"
             type="text"
-            id="outlined-basic"
             label="Username"
             variant="outlined"
             fullWidth={true} />
@@ -25,7 +24,6 @@ const AuthForm = (props) => {
           <TextField
             name="password"
             type="password"
-            id="outlined-basic"
             label="Password"
             variant="outlined"
             fullWidth={true} />
