@@ -1,6 +1,5 @@
 const { Word, Sentence } = require('./server/db');
 const mongoose = require('mongoose');
-const db = require('./server/db/db');
 
 const words = [
   {
@@ -168,6 +167,16 @@ async function seed() {
 }
 
 async function runSeed() {
+const mongoose = require('mongoose');
+mongoose.connect(process.env.MONGODB_ATLAS_URI || process.env.NODE_ENV === 'test' ? 'mongodb://localhost:27017/language-translator-test' : 'mongodb://localhost:27017/language-translator', {useNewUrlParser: true, useUnifiedTopology: true});
+const db = mongoose.connection;
+
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  if (process.env.NODE_ENV !== 'test') {
+    console.log('Database Connected Successfully')
+  }
+})
   db.on('error', console.error.bind(console, 'connection error:'));
   db.once('open', async function() {
     await Sentence.deleteMany({});
