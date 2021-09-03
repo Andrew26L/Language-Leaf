@@ -1,5 +1,6 @@
 const { Word, Sentence } = require('./server/db');
 const mongoose = require('mongoose');
+const db = require('./server/db/db');
 
 const words = [
   {
@@ -147,10 +148,10 @@ const sentences = [
   },
 ]
 
-function seed() {
+async function seed() {
   for (let i = 0; i < words.length; i++) {
     const currentWord = new Word(words[i])
-    currentWord.save(function(err, currentWord) {
+    await currentWord.save(function(err, currentWord) {
       if (err) {
         return console.error(err);
       }
@@ -158,7 +159,7 @@ function seed() {
   }
   for (let i = 0; i < sentences.length; i++) {
     const currentSentence = new Sentence(sentences[i])
-    currentSentence.save(function(err, currentSentence) {
+    await currentSentence.save(function(err, currentSentence) {
       if (err) {
         return console.error(err);
       }
@@ -166,17 +167,20 @@ function seed() {
   }
 }
 
-mongoose.connect(process.env.MONGODB_ATLAS_URI || process.env.NODE_ENV === 'test' ? 'mongodb://localhost:27017/language-translator-test' : 'mongodb://localhost:27017/language-translator', {useNewUrlParser: true, useUnifiedTopology: true});
+async function runSeed() {
+  db.on('error', console.error.bind(console, 'connection error:'));
+  db.once('open', async function() {
+    await Sentence.deleteMany({});
+    await Word.deleteMany({});
+    await seed();
+    if (process.env.NODE_ENV !== 'test') {
+      console.log('Database Seeded Successfully')
+    }
+  })
+}
 
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', async function() {
-  await Sentence.deleteMany({});
-  await Word.deleteMany({});
-  await seed();
-  if (process.env.NODE_ENV !== 'test') {
-    console.log('Database Seeded Successfully')
-  }
-})
+if (module === require.main) {
+  runSeed();
+}
 
 module.exports = seed;
