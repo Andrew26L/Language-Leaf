@@ -49,6 +49,11 @@ class QuizPrompt extends React.Component {
     let { question } = this.props.quizStatus || 0;
     let { promptLang, translateLang } = this.state;
     const prompt = this.props.quiz[question] ? this.props.quiz[question][promptLang][0] : '';
+    if (!this.props.quiz.length) {
+      return (
+        <div>Loading Content</div>
+      )
+    }
     return (
       <div className="leaf">
         <form onSubmit={this.handleSubmit} className="form-group">
