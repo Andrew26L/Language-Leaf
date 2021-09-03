@@ -30,7 +30,9 @@ const userSchema = new mongoose.Schema({
     type: Number,
     default: 0
   },
-  email: String,
+  email: {
+    type: String
+  },
   address: {
     type: addressSchema
   }
