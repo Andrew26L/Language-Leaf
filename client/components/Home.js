@@ -2,12 +2,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import history from '../history';
-import { resetQuiz, quizCompleted } from '../store/quizStatus'
+import { resetQuiz, quizCompleted } from '../store/quizStatus';
+import { fetchUserScore } from '../store/score';
 
 class Home extends React.Component {
   constructor() {
     super()
     this.handleClick = this.handleClick.bind(this);
+  }
+  componentDidMount() {
+    this.props.fetchUserScore();
   }
   handleClick() {
     this.props.resetQuiz();
@@ -22,7 +26,10 @@ class Home extends React.Component {
           <h3>to</h3>
           <h1>Language Leaf</h1>
         </div>
-        <h3>You're Learning  🇩🇪 </h3>
+        <div>
+          <h3>You're Learning  🇩🇪 </h3>
+          <h3>{`Score: ${this.props.score}`}</h3>
+        </div>
         <Button
           variant="outlined"
           color="primary"
@@ -37,11 +44,18 @@ class Home extends React.Component {
   }
 }
 
+const mapState = (state) => {
+  return {
+    score: state.score
+  }
+}
+
 const mapDispatch = (dispatch) => {
   return {
     resetQuiz: () => {dispatch(resetQuiz())},
     quizCompleted: (bool) => {dispatch(quizCompleted(bool))},
+    fetchUserScore: () => {dispatch(fetchUserScore())}
   }
 }
 
-export default connect(null, mapDispatch)(Home);
+export default connect(mapState, mapDispatch)(Home);
