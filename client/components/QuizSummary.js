@@ -2,11 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import history from '../history'
+import { updateUserScore } from '../store/score';
 
 class QuizSummary extends React.Component {
   constructor(props) {
     super(props);
     this.handleNext = this.handleNext.bind(this);
+  }
+  componentDidMount() {
+    this.props.updateUserScore(this.props.score)
   }
   handleNext(event) {
     history.push('/')
@@ -35,4 +39,10 @@ const mapState = (state) => {
   }
 }
 
-export default connect(mapState)(QuizSummary);
+const mapDispatch = (dispatch) => {
+  return {
+    updateUserScore: (score) => {dispatch(updateUserScore(score))},
+  }
+}
+
+export default connect(mapState, mapDispatch)(QuizSummary);
