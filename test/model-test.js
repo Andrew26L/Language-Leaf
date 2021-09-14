@@ -57,4 +57,12 @@ describe("Sentence Model", () => {
     })
     expect(sentence.reports[0]).to.be.an("object")
   })
+  it(`Reports have "language" and "guess" properties`, async () => {
+    sentence.reports.push({
+      language: "german",
+      guess: "Wie gehts?"
+    })
+    expect(sentence.reports[0].language).to.be.a("string")
+    expect(sentence.reports[0].guess).to.be.a("string")
+  })
 })
