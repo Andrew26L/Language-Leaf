@@ -8,7 +8,7 @@
 <h3 align="center">Language Leaf</h3>
 <p align="center" ><a href="https://language-leaf.herokuapp.com/">language-leaf.herokuapp.com</a></p>
 <p align="center">Language learning platform that adapts to user feedback</p>
-<p align="center">MongoDB | Express | React/Redux | Node.js | Material-UI | JWT</p>
+<p align="center">MongoDB | Express | React/Redux | Node.js | Material-UI | JWT | Mocha | Chai</p>
 
 <hr />
 
