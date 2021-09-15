@@ -84,6 +84,10 @@ describe("Word Model", () => {
     expect(word.german[0]).to.be.a("string");
     expect(word.german[0]).to.equal("Bahn")
   })
+  it("Generates an instance with a word type (i.e. noun, verb, adjective, etc.)", async () => {
+    expect(word.type).to.be.a("string");
+    expect(word.type).to.equal("noun")
+  })
   it("Generates an empty array for reports", async () => {
     expect(word.reports).to.be.an("array");
     expect(word.reports.length).to.equal(0)
