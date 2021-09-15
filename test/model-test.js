@@ -1,4 +1,4 @@
-const { User, Sentence } = require("../server/db");
+const { User, Sentence, Word } = require("../server/db");
 const { expect } = require("chai");
 const jwt = require("jsonwebtoken")
 
@@ -64,5 +64,52 @@ describe("Sentence Model", () => {
     })
     expect(sentence.reports[0].language).to.be.a("string")
     expect(sentence.reports[0].guess).to.be.a("string")
+  })
+})
+
+describe("Word Model", () => {
+  let word;
+  beforeEach(async () => {
+    word = new Word({
+      english: ["Train"],
+      german: ["Bahn"],
+      type: "noun"
+    })
+  })
+  it("Generates an instance with an English translation", async () => {
+    expect(word.english[0]).to.be.a("string");
+    expect(word.english[0]).to.equal("Train")
+  })
+  it("Generates an instance with a German translation", async () => {
+    expect(word.german[0]).to.be.a("string");
+    expect(word.german[0]).to.equal("Bahn")
+  })
+  it("Generates an empty array for reports", async () => {
+    expect(word.reports).to.be.an("array");
+    expect(word.reports.length).to.equal(0)
+  })
+  it("Reports can be added to the instance", async () => {
+    word.reports.push({
+      language: "english",
+      guess: "train"
+    })
+    expect(word.reports[0].guess).to.equal("train")
+    expect(word.reports[0].language).to.equal("english")
+    expect(word.reports.length).to.equal(1)
+  })
+  it("Reports are added as objects", async () => {
+    word.reports.push({
+      language: "english",
+      guess: "train"
+    })
+    expect(word.reports[0]).to.be.an("object")
+  })
+  it(`Reports have "language" and "guess" properties`, async () => {
+    word.reports.push({
+      language: "english",
+      guess: "train"
+    })
+    expect(word.reports[0].language).to.be.a("string")
+    expect(word.reports[0].guess).to.be.a("string")
   })
 })
