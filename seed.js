@@ -178,7 +178,7 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
   if (process.env.NODE_ENV !== 'test') {
-    console.log('Database Connected Successfully')
+    ('Database Connected Successfully')
   }
 })
   db.on('error', console.error.bind(console, 'connection error:'));
