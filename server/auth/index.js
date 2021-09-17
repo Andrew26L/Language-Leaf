@@ -17,13 +17,7 @@ router.post('/login', async (req, res, next) => {
 
 router.post('/signup', async (req, res, next) => {
   try {
-    const user = await new User(req.body);
-    await user.save(function(error, user) {
-      if (error) {
-        console.log(error)
-        return console.error(error);
-      }
-    })
+    const user = await User.create(req.body);
     const token = await user.generateToken();
     res.send({token})
   } catch (error) {
