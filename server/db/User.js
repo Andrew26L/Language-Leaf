@@ -72,7 +72,8 @@ userSchema.statics.authenticate = async function ({username, password}) {
     error.status = 401;
     throw error;
   } else {
-    return user.generateToken();
+    const token = await user.generateToken();
+    return token;
   };
 }
 
