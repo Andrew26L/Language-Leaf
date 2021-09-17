@@ -1,5 +1,3 @@
-// const Sequelize = require('sequelize');
-
 // const mongoose = require('mongoose').set('debug', true);
 const mongoose = require('mongoose');
 if (process.env.MONGODB_ATLAS_URI) {
