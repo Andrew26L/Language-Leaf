@@ -39,6 +39,7 @@ const mapState = (state) => {
   }
 }
 
+// Update current user's total score after completing quiz
 const mapDispatch = (dispatch) => {
   return {
     updateUserScore: (score) => {dispatch(updateUserScore(score))},
