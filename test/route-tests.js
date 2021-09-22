@@ -2,7 +2,7 @@ const app = require("../server/app");
 const request = require("supertest");
 const { expect } = require("chai");
 const seed = require("../seed");
-const { Word } = require("../server/db");
+const { Sentence, Word } = require("../server/db");
 
 describe("API Routes", () => {
   beforeEach(async () => {
@@ -70,6 +70,33 @@ describe("API Routes", () => {
       expect(res.body.reports).to.be.an("array");
       expect(res.body.reports[0].guess).to.equal("train");
       expect(res.body.reports[0].language).to.equal("english");
+    })
+  })
+  describe("Sentence Report routes - /api/report/sentence", () => {
+    let sentence;
+    let report;
+    beforeEach(async () => {
+      const greeting = new Sentence({
+        english: ["How are you?"],
+        german: ["Wie geht es ihnen?"]
+      })
+      sentence = await Sentence.create(greeting);
+
+      report = {
+        _id: sentence._id,
+        guess: "Wie gehts?",
+        language: "german"
+      }
+    })
+    it("POST responds successfully with status code 200", async() => {
+      const res = await request(app).post("/api/report/sentence").send(report).expect(200)
+    })
+    it("POST responds with a sentence object with updated reports array", async() => {
+      const res = await request(app).post("/api/report/sentence").send(report)
+      expect(res.body).to.be.an("object");
+      expect(res.body.reports).to.be.an("array");
+      expect(res.body.reports[0].guess).to.equal("Wie gehts?");
+      expect(res.body.reports[0].language).to.equal("german");
     })
   })
 });
