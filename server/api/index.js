@@ -1,5 +1,6 @@
 const router = require('express').Router();
 
+// API routes
 router.use('/words', require('./words'));
 router.use('/sentences', require('./sentences'));
 router.use('/report', require('./report'));
