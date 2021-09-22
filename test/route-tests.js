@@ -64,7 +64,7 @@ describe("API Routes", () => {
     it("POST responds successfully with status code 200", async() => {
       const res = await request(app).post("/api/report/word").send(report).expect(200)
     })
-    it("POST responds with a sentence or word object with updated reports array", async() => {
+    it("POST responds with a word object with updated reports array", async() => {
       const res = await request(app).post("/api/report/word").send(report)
       expect(res.body).to.be.an("object");
       expect(res.body.reports).to.be.an("array");
