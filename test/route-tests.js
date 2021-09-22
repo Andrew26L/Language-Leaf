@@ -2,6 +2,7 @@ const app = require("../server/app");
 const request = require("supertest");
 const { expect } = require("chai");
 const seed = require("../seed");
+const { Word } = require("../server/db");
 
 describe("API Routes", () => {
   beforeEach(async () => {
@@ -41,6 +42,34 @@ describe("API Routes", () => {
       expect(res.body[0].english).to.be.an("array");
       expect(res.body[0].english[0]).to.be.an("string");
       expect(res.body[0].english[0].length).to.be.greaterThan(0);
+    })
+  })
+  describe("Word Report routes - /api/report/word", () => {
+    let word;
+    let report;
+    beforeEach(async () => {
+      const train = new Word({
+        english: ["Train"],
+        german: ["Bahn"],
+        type: "noun"
+      })
+      word = await Word.create(train);
+
+      report = {
+        _id: word._id,
+        guess: "train",
+        language: "english"
+      }
+    })
+    it("POST responds successfully with status code 200", async() => {
+      const res = await request(app).post("/api/report/word").send(report).expect(200)
+    })
+    it("POST responds with a sentence or word object with updated reports array", async() => {
+      const res = await request(app).post("/api/report/word").send(report)
+      expect(res.body).to.be.an("object");
+      expect(res.body.reports).to.be.an("array");
+      expect(res.body.reports[0].guess).to.equal("train");
+      expect(res.body.reports[0].language).to.equal("english");
     })
   })
 });
