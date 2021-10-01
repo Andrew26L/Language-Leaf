@@ -18,16 +18,18 @@ class QuizSummary extends React.Component {
   render() {
     return (
       <div className="leaf">
-        <h1>Quiz Completed!</h1>
-        <h1>🏆</h1>
-        <h2>{`Score: ${this.props.score}`}</h2>
-        <Button
-          variant="outlined"
-          color="primary"
-          onClick={this.handleNext}>
-          Next
-        </Button>
-        <div></div>
+        <div className="leaf-container">
+          <h1>Quiz Completed!</h1>
+          <h1>🏆</h1>
+          <h2>{`Score: ${this.props.score}`}</h2>
+          <Button
+            variant="outlined"
+            color="primary"
+            onClick={this.handleNext}>
+            Next
+          </Button>
+          <div></div>
+        </div>
     </div>
   )}
 }
