@@ -55,6 +55,7 @@ class QuizPrompt extends React.Component {
     }
     return (
       <div className="leaf">
+        <h5 id="question-number">{`${question + 1} / 8`}</h5>
         <form onSubmit={this.handleSubmit} className="form-group">
           <h5>{`In ${promptLang}:`}</h5>
           <h2>{prompt}</h2>
@@ -66,7 +67,6 @@ class QuizPrompt extends React.Component {
             variant="outlined"
             value={this.state.guess}
             onChange={this.handleChange}/>
-          <br /><br />
           <Button
             variant="outlined"
             color="primary"
