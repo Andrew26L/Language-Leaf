@@ -36,32 +36,34 @@ class QuizCheck extends React.Component {
   render() {
     return (
       <div className="leaf">
-        <div>
+        <div className="leaf-container">
           <h1>Submit a Report</h1>
-          <h5>{`Your Answer: ${this.props.quizStatus.guess}`}</h5>
-          <h5>{`Correct Answer: ${this.props.quiz[this.props.quizStatus.question][this.props.quizStatus.lang][0]}`}</h5>
+          <div>
+            <h5>{`Your Answer: ${this.props.quizStatus.guess}`}</h5>
+            <h5>{`Correct Answer: ${this.props.quiz[this.props.quizStatus.question][this.props.quizStatus.lang][0]}`}</h5>
+          </div>
+          <h4>What are you Reporting?</h4>
+          <Button
+            variant="outlined"
+            color="primary"
+            onClick={this.handleSubmit}>
+            My answer is correct
+          </Button>
+          <Button
+            variant="outlined"
+            color="primary"
+            onClick={this.handleCancel}
+            >
+            The solution is incorrect
+          </Button>
+          <Button
+            variant="outlined"
+            color="secondary"
+            onClick={this.handleCancel}>
+            Cancel
+          </Button>
+          <div></div>
         </div>
-        <h4>What are you Reporting?</h4>
-        <Button
-          variant="outlined"
-          color="primary"
-          onClick={this.handleSubmit}>
-          My answer is correct
-        </Button>
-        <Button
-          variant="outlined"
-          color="primary"
-          onClick={this.handleCancel}
-          >
-          The solution is incorrect
-        </Button>
-        <Button
-          variant="outlined"
-          color="secondary"
-          onClick={this.handleCancel}>
-          Cancel
-        </Button>
-        <div></div>
     </div>
   )}
 }
