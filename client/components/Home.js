@@ -20,25 +20,27 @@ class Home extends React.Component {
   }
   render() {
     return (
-      <div className="homeCard">
-        <div>
-          <h1>Welcome</h1>
-          <h3>to</h3>
-          <h1>Language Leaf</h1>
+      <div className="leaf">
+        <div className="leaf-container">
+          <div>
+            <h1>Welcome</h1>
+            <h3>to</h3>
+            <h1>Language Leaf</h1>
+          </div>
+          <div>
+            <h3>You're Learning  🇩🇪 </h3>
+            <h3>{`Score: ${this.props.score}`}</h3>
+          </div>
+          <Button
+            variant="outlined"
+            color="primary"
+            size="large"
+            onClick={this.handleClick}>
+            Begin Next Quiz
+          </Button>
+          <div></div>
+          <div></div>
         </div>
-        <div>
-          <h3>You're Learning  🇩🇪 </h3>
-          <h3>{`Score: ${this.props.score}`}</h3>
-        </div>
-        <Button
-          variant="outlined"
-          color="primary"
-          size="large"
-          onClick={this.handleClick}>
-          Begin Next Quiz
-        </Button>
-        <div></div>
-        <div></div>
       </div>
     )
   }
