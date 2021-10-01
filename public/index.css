@@ -17,31 +17,24 @@
 }
 
 .leaf {
+  position: relative;
   margin: 20px;
-  width: 350px;
-  height: 400px;
+  width: 400px;
+  height: 500px;
   background-image: linear-gradient(to top right, #8fb383, #afcfa5);
-  padding: 50px;
   border-radius: 150px 5px 150px 5px;
   box-shadow: 5px 5px 20px rgb(0, 0, 0);
+}
+
+.leaf form, .leaf-container {
+  padding-top: 50px;
+  margin: 0px 50px 50px 50px;
+  top: 50px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 370px;
 }
-
-.homeCard {
-  margin: 20px;
-  width: 350px;
-  height: 400px;
-  background-image: linear-gradient(to top right, #8fb383, #afcfa5);
-  padding: 50px;
-  border-radius: 150px 5px 150px 5px;
-  box-shadow: 5px 5px 20px rgb(0, 0, 0);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
 
 h1, h2, h3, h4, h5 {
   text-align: center;
@@ -61,4 +54,16 @@ body {
 .navButton {
   color: white;
   text-decoration: none;
+}
+
+#question-number {
+  padding: 20px;
+  background-color: honeydew;
+  position: absolute;
+  border-radius: 50px 50px 50px 50px;
+  right: -20px;
+}
+
+.MuiButtonBase {
+  margin: 3px;
 }
