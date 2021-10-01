@@ -45,37 +45,41 @@ class QuizCheck extends React.Component {
         {this.state.correct ?
           (
             <div className="leaf">
-              <div></div>
-              <h1>⭐️</h1>
-              <h1>CORRECT!</h1>
-              <Button
-                variant="outlined"
-                color="primary"
-                onClick={this.handleNext}>
-                Next
-              </Button>
-              <div></div>
-            </div>
-          ) : (
-            <div className="leaf">
-              <h1>Incorrect</h1>
-              <div>
-                <h5>{`Your Answer: ${this.props.quizStatus.guess}`}</h5>
-                <h5>{`Correct Answer: ${this.props.quiz[this.props.quizStatus.question][this.props.quizStatus.lang][0]}`}</h5>
-              </div>
-              <div className="buttonContainer">
-                <Button
-                  variant="outlined"
-                  color="secondary"
-                  onClick={this.handleReport}>
-                  Report
-                </Button>
+              <div className="leaf-container">
+                <div></div>
+                <h1>⭐️</h1>
+                <h1>CORRECT!</h1>
                 <Button
                   variant="outlined"
                   color="primary"
                   onClick={this.handleNext}>
                   Next
                 </Button>
+                <div></div>
+              </div>
+            </div>
+          ) : (
+            <div className="leaf">
+              <div className="leaf-container">
+                <h1>Incorrect</h1>
+                <div>
+                  <h5>{`Your Answer: ${this.props.quizStatus.guess}`}</h5>
+                  <h5>{`Correct Answer: ${this.props.quiz[this.props.quizStatus.question][this.props.quizStatus.lang][0]}`}</h5>
+                </div>
+                <div className="buttonContainer">
+                  <Button
+                    variant="outlined"
+                    color="secondary"
+                    onClick={this.handleReport}>
+                    Report
+                  </Button>
+                  <Button
+                    variant="outlined"
+                    color="primary"
+                    onClick={this.handleNext}>
+                    Next
+                  </Button>
+                </div>
               </div>
             </div>
           )
