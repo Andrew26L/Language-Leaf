@@ -48,7 +48,7 @@ body {
 .buttonContainer {
   display: flex;
   justify-content: space-between;
-  margin: 50px;
+  margin: 0 50px 0 50px;
 }
 
 .navButton {
@@ -56,12 +56,16 @@ body {
   text-decoration: none;
 }
 
-#question-number {
-  padding: 20px;
+#info-bubble {
   background-color: honeydew;
   position: absolute;
-  border-radius: 50px 50px 50px 50px;
-  right: -20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px 30px 30px 30px;
+  height: 60px;
+  width: 60px;
+  right: -30px;
 }
 
 .MuiButtonBase {
