@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import history from '../history'
 import { updateUserScore } from '../store/score';
+import TaskAltIcon from '@mui/icons-material/TaskAlt';
 
 class QuizSummary extends React.Component {
   constructor(props) {
@@ -20,7 +21,7 @@ class QuizSummary extends React.Component {
       <div className="leaf">
         <div className="leaf-container">
           <h1>Quiz Completed!</h1>
-          <h1>🏆</h1>
+          <h1><TaskAltIcon fontSize="large"/></h1>
           <h2>{`Score: ${this.props.score}`}</h2>
           <Button
             variant="outlined"

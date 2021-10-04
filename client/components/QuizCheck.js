@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import { incrementQuestion, toggleSubmitStatus, quizCompleted, toggleReport } from '../store/quizStatus';
 import { incrementScore } from '../store/score';
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import CheckIcon from '@mui/icons-material/Check';
+import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 
 class QuizCheck extends React.Component {
   constructor(props) {
@@ -45,21 +48,23 @@ class QuizCheck extends React.Component {
         {this.state.correct ?
           (
             <div className="leaf">
-              <h5 id="info-bubble">⭐️</h5>
+              <h5 id="info-bubble"><CheckIcon /></h5>
               <div className="leaf-container">
                 <div></div>
                 <h1>CORRECT!</h1>
                 <Button
                   variant="outlined"
                   color="primary"
-                  onClick={this.handleNext}>
+                  onClick={this.handleNext}
+                  endIcon={<NavigateNextIcon />}
+                >
                   Next
                 </Button>
               </div>
             </div>
           ) : (
             <div className="leaf">
-              <h5 id="info-bubble">❌</h5>
+              <h5 id="info-bubble"><ErrorOutlineIcon /></h5>
               <div className="leaf-container">
                 <div></div>
                 <h1>Incorrect</h1>
@@ -77,7 +82,9 @@ class QuizCheck extends React.Component {
                   <Button
                     variant="outlined"
                     color="primary"
-                    onClick={this.handleNext}>
+                    onClick={this.handleNext}
+                    endIcon={<NavigateNextIcon />}
+                  >
                     Next
                   </Button>
                 </div>
