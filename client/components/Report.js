@@ -42,7 +42,7 @@ class QuizCheck extends React.Component {
             <h5>{`Your Answer: ${this.props.quizStatus.guess}`}</h5>
             <h5>{`Correct Answer: ${this.props.quiz[this.props.quizStatus.question][this.props.quizStatus.lang][0]}`}</h5>
           </div>
-          <h4>What are you Reporting?</h4>
+          <h4>What are you reporting?</h4>
           <Button
             variant="outlined"
             color="primary"
