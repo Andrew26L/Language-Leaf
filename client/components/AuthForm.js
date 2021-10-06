@@ -1,8 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {authenticate} from '../store/auth';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField'
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField'
 import { Link } from 'react-router-dom';
 
 const AuthForm = (props) => {

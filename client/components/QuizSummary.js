@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Button from '@material-ui/core/Button';
+import Button from '@mui/material/Button';
 import history from '../history'
 import { updateUserScore } from '../store/score';
 import TaskAltIcon from '@mui/icons-material/TaskAlt';
