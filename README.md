@@ -47,6 +47,9 @@ Linux and macOS:
 npm install
 ```
 ```
+npm run seed
+```
+```
 npm run start:dev
 ```
 
