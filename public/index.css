@@ -56,6 +56,11 @@ body {
   text-decoration: none;
 }
 
+.topBar {
+  display: flex;
+  justify-content: space-between;
+}
+
 #info-bubble {
   background-color: honeydew;
   position: absolute;
