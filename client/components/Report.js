@@ -58,7 +58,7 @@ class QuizCheck extends React.Component {
           </Button>
           <Button
             variant="outlined"
-            color="secondary"
+            color="error"
             onClick={this.handleCancel}>
             Cancel
           </Button>

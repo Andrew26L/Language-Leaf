@@ -57,6 +57,7 @@ class QuizPrompt extends React.Component {
       <div className="leaf">
         <h5 id="info-bubble">{`${question + 1} / 8`}</h5>
         <form onSubmit={this.handleSubmit} className="form-group">
+          <div></div>
           <h5>{`In ${promptLang}:`}</h5>
           <h2>{prompt}</h2>
           <br /><br />

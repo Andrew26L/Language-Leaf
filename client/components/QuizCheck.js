@@ -75,7 +75,8 @@ class QuizCheck extends React.Component {
                 <div className="buttonContainer">
                   <Button
                     variant="outlined"
-                    color="secondary"
+                    color="error"
+                    type="button"
                     onClick={this.handleReport}>
                     Report
                   </Button>
