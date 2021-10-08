@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { logout } from '../store/auth';
-import { makeStyles } from '@mui/material/styles'
+import { makeStyles } from '@material-ui/core'
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
 const Navbar = ({isLoggedIn, handleClick}) => {
   const classes = useStyles();
   return (
-    <AppBar position="static" className={classes.green}>
+    <AppBar position="static" style={{backgroundColor: "#2b2e27"}}>
       <Toolbar>
         <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
         </IconButton>
